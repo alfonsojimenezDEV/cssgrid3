@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 02</title>
+    <style>
+        .wrapper {
+            display:grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            grid-auto-rows: 100px 200px;
+        }
+        /* 
+        He creado una cuadrícula con tres filas de 200px de altura.
+        Coloco las cosas automáticamente por columna
+        La columnas creadas tendrán un ancho de columna de 300px y luego de como mínimo 175 y
+        como máximo el espacio que quede (1fr).
+        */
+        .wrapper2 {
+            display:grid;
+            grid-template-rows: repeat(3, 200px);
+            gap: 10px;
+            grid-auto-flow: column;
+            grid-auto-columns: 300px minmax(175px, 1fr);
+            
+        }
+
+        .wrapper3 {
+            display:grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            grid-auto-rows: minmax(100px, auto);
+            margin-bottom: 10px;
+        }
+
+        .wrapper3 div:nth-child(2) {
+            grid-column: 3;
+            grid-row: 2 / 4;
+        }
+
+        .wrapper3 div:nth-child(5) {
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+        }
+        .uno {
+            background-color: aqua;
+        }
+        .dos {
+            background-color: rgba(40,252,135,0.5)
+        }
+        .tres {
+            background-color: rgba(252,252,135,0.5)
+        }
+        .cuatro {
+            background-color: rgba(252,40,135,0.5)
+        }
+        .cinco {
+            background-color: rgba(152,140,20,0.5)
+        }
+        .seis {   
+            background-color: rgba(152,70,110,0.5)
+        }
+        .siete {   
+            background-color: rgba(34,7,222,0.5)
+        }
+        .ocho {   
+            background-color: rgba(0,20,225,0.5)
+        }
+        .nueve {   
+            background-color: rgba(152,70,110,0.5)
+        }
+        .diez {   
+            background-color: rgba(152,70,110,0.5)
+        }
+        .once {   
+            background-color: rgba(152,70,110,0.5)
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="wrapper3">
+        <div class="uno">UNO: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio, nobis facere? Facere repellat magnam nulla deleniti optio voluptas consectetur reprehenderit odio dignissimos, temporibus, quaerat autem?</div>
+        <div class="dos">DOS: Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum sit minima temporibus.</div>
+        <div class="tres">TRES: Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia a nesciunt tempore laudantium distinctio, consequatur dicta esse ut nihil provident officiis sint iure quo enim facilis minima laboriosam ipsum ipsam facere! Temporibus asperiores quasi excepturi, obcaecati mollitia, ratione, blanditiis reprehenderit sapiente illum omnis delectus repellendus?</div>
+        <div class="cuatro">CUATRO: Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, minus!</div>
+        <div class="cinco">CINCO: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, cupiditate vel in repudiandae autem fugiat ad eos, error, sint temporibus consequuntur quaerat.</div>
+        <div class="seis">SEIS: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, possimus quae? Minima deserunt quasi ab. Officiis!</div>
+        <div class="siete">SIETE: Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis nobis adipisci ea ullam in amet voluptatum, culpa inventore! Quasi repellendus deserunt, ad commodi ipsum odit. </div>
+        <div class="ocho">OCHO: Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci perspiciatis velit veritatis voluptatum expedita?</div>
+        <div class="nueve">NUEVE: Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi explicabo sed ab deleniti cupiditate dolores nisi optio laboriosam odit hic quos esse accusantium velit aliquam minima dicta, dolorum, quidem assumenda soluta! Ipsam, illo corporis expedita quia iste reiciendis enim atque quod culpa ex illum quis ut fugiat officia laboriosam nulla autem error accusantium nisi.</div>
+        <div class="diez">DIEZ</div>
+        <div class="once">ONCE</div>
+    </div>
+
+    <div class="wrapper">
+        <div class="uno">UNO: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio, nobis facere? Facere repellat magnam nulla deleniti optio voluptas consectetur reprehenderit odio dignissimos, temporibus, quaerat autem?</div>
+        <div class="dos">DOS: Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum sit minima temporibus.</div>
+        <div class="tres">TRES: Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia a nesciunt tempore laudantium distinctio, consequatur dicta esse ut nihil provident officiis sint iure quo enim facilis minima laboriosam ipsum ipsam facere! Temporibus asperiores quasi excepturi, obcaecati mollitia, ratione, blanditiis reprehenderit sapiente illum omnis delectus repellendus?</div>
+        <div class="cuatro">CUATRO: Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, minus!</div>
+        <div class="cinco">CINCO: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, cupiditate vel in repudiandae autem fugiat ad eos, error, sint temporibus consequuntur quaerat.</div>
+        <div class="seis">SEIS: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, possimus quae? Minima deserunt quasi ab. Officiis!</div>
+        <div class="siete">SIETE: Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis nobis adipisci ea ullam in amet voluptatum, culpa inventore! Quasi repellendus deserunt, ad commodi ipsum odit. </div>
+        <div class="ocho">OCHO: Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci perspiciatis velit veritatis voluptatum expedita?</div>
+        <div class="nueve">NUEVE: Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi explicabo sed ab deleniti cupiditate dolores nisi optio laboriosam odit hic quos esse accusantium velit aliquam minima dicta, dolorum, quidem assumenda soluta! Ipsam, illo corporis expedita quia iste reiciendis enim atque quod culpa ex illum quis ut fugiat officia laboriosam nulla autem error accusantium nisi.</div>
+        <div class="diez">DIEZ</div>
+        <div class="once">ONCE</div>
+    </div>
+
+    <div class="wrapper2">
+        <div class="uno">UNO: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio, nobis facere? Facere repellat magnam nulla deleniti optio voluptas consectetur reprehenderit odio dignissimos, temporibus, quaerat autem?</div>
+        <div class="dos">DOS: Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum sit minima temporibus.</div>
+        <div class="tres">TRES: Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia a nesciunt tempore laudantium distinctio, consequatur dicta esse ut nihil provident officiis sint iure quo enim facilis minima laboriosam ipsum ipsam facere! Temporibus asperiores quasi excepturi, obcaecati mollitia, ratione, blanditiis reprehenderit sapiente illum omnis delectus repellendus?</div>
+        <div class="cuatro">CUATRO: Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, minus!</div>
+        <div class="cinco">CINCO: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, cupiditate vel in repudiandae autem fugiat ad eos, error, sint temporibus consequuntur quaerat.</div>
+        <div class="seis">SEIS: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, possimus quae? Minima deserunt quasi ab. Officiis!</div>
+        <div class="siete">SIETE: Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam omnis nobis adipisci ea ullam in amet voluptatum, culpa inventore! Quasi repellendus deserunt, ad commodi ipsum odit. </div>
+        <div class="ocho">OCHO: Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci perspiciatis velit veritatis voluptatum expedita?</div>
+        <div class="nueve">NUEVE: Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi explicabo sed ab deleniti cupiditate dolores nisi optio laboriosam odit hic quos esse accusantium velit aliquam minima dicta, dolorum, quidem assumenda soluta! Ipsam, illo corporis expedita quia iste reiciendis enim atque quod culpa ex illum quis ut fugiat officia laboriosam nulla autem error accusantium nisi.</div>
+        <div class="diez">DIEZ</div>
+        <div class="once">ONCE</div>
+    </div>
+
+</body>
+</html>
