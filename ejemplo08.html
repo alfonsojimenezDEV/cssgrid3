@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 08</title>
+    <style>
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(12, [col-start] 1fr);
+        }
+
+        .item1 {
+            grid-column: col-start / col-start 5;
+        }
+
+        .item2 {
+            grid-column: col-start 7 / colstart 11;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="item1">I am placed from col-start line 1 to col-start 5</div>
+        <div class="item2">I am placed from col-start line 7 spanning 3 lines</div>
+      </div>
+</body>
+</html>
