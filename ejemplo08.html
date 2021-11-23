@@ -19,12 +19,49 @@
             grid-column: col-start 7 / colstart 11;
         }
 
+
+        /* 
+        Básicamente esto es todo lo que se necesita para crear un grid de 12 columnas
+        Se puede observar que luego las distintas zonas se crear fácilmente indicando el inicio y el final.
+        */
+        .wrapper2 {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(12, [col-start] 1fr);   
+        }
+
+        .main-header, .main-footer {
+            grid-column: col-start / 12;
+        }
+
+        .side1 {
+            grid-column: col-start / 3;
+        }
+        
+        .content {
+            grid-column: col-start 4 / span 6;
+        }
+
+        .side2 {
+            grid-column: col-start 10 / span 2;
+        }
+
+
+
     </style>
 </head>
 <body>
     <div class="wrapper">
         <div class="item1">I am placed from col-start line 1 to col-start 5</div>
         <div class="item2">I am placed from col-start line 7 spanning 3 lines</div>
-      </div>
+    </div>
+
+    <div class="wrapper2">
+        <header class="main-header">I am the header</header>
+        <aside class="side1">I am sidebar 1</aside>
+        <article class="content">I am the main article</article>
+        <aside class="side2">I am sidebar 2</aside>
+        <footer class="main-footer">I am the footer</footer>
+    </div>
 </body>
 </html>
