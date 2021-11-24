@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 10 - Diseño de 12 columnas</title>
+    <style>
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(12, [col-start] 1fr);
+            gap: 20px;
+        }
+        /*
+        Empezamos primero con el móvil, y todo lo que queremos para las pantallas más estrechas es que los objetos
+        permanezcan en el orden de origen, y que se extiendan a lo largo de la cuadrícula.
+        */
+        .wrapper > * {
+            grid-column: col-start / span 12;
+        }
+
+        /* 
+        En el siguiente punto de ruptura queremos pasar a un diseño de dos columnas. Nuestro encabezado y navegación aún abarcan toda la cuadrícula, así que
+        no necesitamos especificar ninguna posición para ellos.
+        La barra lateral comineza en la primera línea de la columna llamada "cols-start", abarcando 3 líneas.
+        Va después de la línea de la fila 3, ya que el encabazado y la navegación están en las dos primeras filas.
+        El panel de anuncios es´ta debajo de la barra lateral, así que empieza en la línea 4 de la cuadrícula.
+        Luego tenemos el contenido y el pie de página comenzando en la línea 4 y abarcando 9 pistas que los llevan al final de la cuadrícula.
+        */
+        @media (min-width: 500px) {
+            .side {
+                grid-column: col-start / span 3;
+                grid-row: 3;
+            }
+            .ad {
+                grid-column: col-start / span 3;
+                grid-row: 4;
+            }
+            .content, .main-footer {
+                grid-column: col-start 4 / span 9;
+            }
+            nav ul {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+
+        /*
+        Finalmente vamos a la versión de tres columnas de este diseño.
+        El encabezado continúa abarcando toda la cuadrícula, pero ahroa la navegación se mueve hacia abajo praa convertirse en la primera barra lateral
+        con el conteniodo y luego la barra lateral al lado.
+        El pie de página ahora también se extiende a lo largo de todo el diseño.
+        */
+        @media (min-width: 700px) {
+            .main-nav {
+                grid-column: col-start / span 2;
+                grid-row: 2 / 4;
+            }
+            .content {
+                grid-column: col-start 3 / span 8;
+                grid-row: 2 / 4;
+            }
+            .side {
+                grid-column: col-start 11 / span 2;
+                grid-row: 2;
+            }
+            .ad {
+                grid-column: col-start 11 / span 2;
+                grid-row: 3;
+            }
+            .main-footer {
+                grid-column: col-start / span 12;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+        }
+
+        .listing {
+            list-style: none;
+            margin: 2em;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+
+        .listing li {
+            border: 1px solid #ffe066;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .listing .cta {
+            margin-top: auto;
+            border-top: 1px solid #ffe066;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .listing .body {
+            padding: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="main-head">The header</header>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="">Nav 1</a></li>
+            <li><a href="">Nav 2</a></li>
+            <li><a href="">Nav 3</a></li>
+          </ul>
+        </nav>
+        <article class="content">
+          <h1>Main article area</h1>
+          <p>In this layout, we display the areas in source order for any screen less that 500 pixels wide. We go to a two column layout, and then to a three column layout by redefining the grid, and the placement of items on the grid.</p>
+          <ul class="listing">
+            <li>
+              <h2>Item One</h2>
+              <div class="body">
+                <p>The content of this listing item goes here.</p>
+              </div>
+              <div class="cta">
+                <a href="">Call to action!</a>
+              </div>
+            </li>
+            <li>
+              <h2>Item Two</h2>
+              <div class="body">
+                <p>The content of this listing item goes here.</p>
+              </div>
+              <div class="cta">
+                <a href="">Call to action!</a>
+              </div>
+            </li>
+            <li class="wide">
+              <h2>Item Three</h2>
+              <div class="body">
+                <p>The content of this listing item goes here.</p>
+                <p>This one has more text than the other items.</p>
+                <p>Quite a lot more</p>
+                <p>Perhaps we could do something different with it?</p>
+              </div>
+              <div class="cta">
+                <a href="">Call to action!</a>
+              </div>
+            </li>
+            <li>
+              <h2>Item Four</h2>
+              <div class="body">
+                <p>The content of this listing item goes here.</p>
+              </div>
+              <div class="cta">
+                <a href="">Call to action!</a>
+              </div>
+            </li>
+            <li>
+              <h2>Item Five</h2>
+              <div class="body">
+                <p>The content of this listing item goes here.</p>
+              </div>
+              <div class="cta">
+                <a href="">Call to action!</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+        <aside class="side">Sidebar</aside>
+        <div class="ad">Advertising</div>
+        <footer class="main-footer">The footer</footer>
+      </div>
+</body>
+</html>
